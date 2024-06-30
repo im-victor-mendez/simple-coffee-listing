@@ -21,7 +21,12 @@
 		"strict": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
-		"noFallthroughCasesInSwitch": true
+		"noFallthroughCasesInSwitch": true,
+
+		/* Alias Path */
+		"paths": {
+			"@assets/*": ["./src/assets/*"]
+		}
 	},
 	"include": ["src"]
 }
