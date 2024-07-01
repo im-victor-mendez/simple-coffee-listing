@@ -26,7 +26,8 @@
 		/* Alias Path */
 		"paths": {
 			"@assets/*": ["./src/assets/*"],
-			"@interfaces/*": ["./src/interfaces/*"]
+			"@interfaces/*": ["./src/interfaces/*"],
+			"@components/*": ["./src/components/*"]
 		}
 	},
 	"include": ["src"]
