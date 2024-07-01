@@ -6,7 +6,7 @@
 
 ## Proyecto
 
-- Desplegado: [Netlify]()
+- Desplegado: [Netlify](https://simple-coffee-list-im-victor-mendez.netlify.app/)
 
 ## Vista Previa
 
