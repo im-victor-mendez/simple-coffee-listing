@@ -4,6 +4,16 @@
 
 **Simple Coffee Listing** es un desafío de desarrollo que se enfoca en el uso de bibliotecas Front-end como React o Vue. El objetivo es crear una página de listado de cafés que coincida con el diseño proporcionado. Este proyecto permite practicar la implementación de componentes reutilizables y trabajar con datos provenientes de una API o archivo JSON descargado.
 
+## Proyecto
+
+- Desplegado: [Netlify]()
+
+## Vista Previa
+
+| Mobile                                                                  | Tableta                                                    | Escritorio                                                   |
+| ----------------------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------ |
+| ![iPhone 14 Pro Max overview](./overview/iPhone-14-Pro-Max-430x932.png) | ![iPad Air 5 overview](./overview/iPad-Air-5-820x1180.png) | ![Macbook Air overview](./overview/Macbook-Air-1559x975.png) |
+
 ## Historias de Usuario
 
 ### 1. Crear una página de listado de cafés que coincida con el diseño proporcionado
@@ -43,12 +53,41 @@ Una vez finalizado el desarrollo, se deberá desplegar la solución y enviar las
 ## Tecnologías Utilizadas
 
 - **React**: Biblioteca JavaScript para construir interfaces de usuario.
-- **CSS**: Para el diseño y estilizado de los componentes.
+- **Sass**: Para el diseño y estilizado de los componentes.
 - **API/JSON**: Para obtener los datos de los productos de café.
 
 ## Estructura del Proyecto
 
 El proyecto se estructurará de la siguiente manera:
+
+```
+node_modules/
+overview/
+public/
+src/
+├── api/
+├── assets/
+├── components/
+├── interfaces/
+├── pages/
+├── styles/
+├── main.scss
+├── main.tsx
+└── vite-env.d.ts
+.env
+.env.template
+.eslintrc.cjs
+.gitignore
+index.html
+package-lock.json
+package.json
+README.md
+tsconfig.app.json
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
+vitest.setup.ts
+```
 
 ## Contacto
 
