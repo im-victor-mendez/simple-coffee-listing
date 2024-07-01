@@ -1,6 +1,42 @@
 import BackgroundCafe from '@assets/images/bg-cafe.jpg';
+import { useEffect, useState } from 'react';
+import { getCoffeeList } from './api/api';
+import { Coffee } from '@interfaces/coffee';
+import { CoffeeComponent } from '@components/Coffee';
 
+/**
+ * **Home**
+ *
+ * Home page to display Coffee list.
+ *
+ * @returns JSX.Element
+ */
 function Home() {
+	const [coffeeList, setCoffeeList] = useState<Coffee[]>([]);
+
+	useEffect(() => {
+		handleCoffeeData();
+	}, []);
+
+	/**
+	 * **Handle Coffee Data**
+	 *
+	 * Calls `getCoffeeList` and sets data into state.
+	 */
+	async function handleCoffeeData() {
+		const coffeeList = await getCoffeeList();
+		setCoffeeList(coffeeList);
+	}
+
+	/**
+	 * **List Mapping**
+	 *
+	 * Maps state list into `CoffeeComponent`.
+	 */
+	const listMapping = coffeeList.map((coffee, index) => (
+		<CoffeeComponent coffee={coffee} key={`coffee-${index}`} />
+	));
+
 	return (
 		<>
 			<img src={BackgroundCafe} alt='Background Cafe Image' />
@@ -18,7 +54,7 @@ function Home() {
 					<button>All Products</button>
 					<button>Available Now</button>
 				</div>
-				<div id='list'></div>
+				<div id='list'>{listMapping}</div>
 			</main>
 		</>
 	);
