@@ -1,6 +1,7 @@
 import { Coffee } from '@interfaces/coffee';
 import EmptyStar from '@assets/svg/Star.svg';
 import StarFilled from '@assets/svg/Star_fill.svg';
+import '@styles/components/Coffee.scss';
 
 /**
  * **Coffee Component Properties**
@@ -92,7 +93,7 @@ function Information({ name, price }: InformationProps) {
 	return (
 		<section className='information'>
 			<p className='name'>{name}</p>
-			<p className='price'>${price}</p>
+			<p className='price'>{price}</p>
 		</section>
 	);
 }
@@ -159,12 +160,13 @@ function Bottom({ available, rating, votes }: BottomProps) {
 	 * @returns JSX.Element
 	 */
 	function Ratings() {
-		if (votes == 0) return <p>No ratings</p>;
+		if (votes == 0) return <p className='votes'>No ratings</p>;
 
 		return (
 			<div>
-				<p className='rating'>{rating}</p>
-				<p className='votes'>({votes} votes)</p>
+				<p className='rating'>
+					{rating} <span className='votes'>({votes} votes)</span>
+				</p>
 			</div>
 		);
 	}

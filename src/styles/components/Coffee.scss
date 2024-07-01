@@ -1,0 +1,63 @@
+@import '../scss/index';
+
+.coffee {
+	width: min-content;
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+	position: relative;
+
+	* {
+		margin: 0;
+	}
+
+	.popular {
+		background-color: $yellow;
+		padding: 0.4rem 1rem;
+		border-radius: 1rem;
+		width: fit-content;
+		position: absolute;
+		top: 0.4rem;
+		left: 0.4rem;
+	}
+
+	img {
+		border-radius: 1rem;
+	}
+
+	.information {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		color: $white;
+		font-weight: 600;
+
+		.price {
+			background-color: $green;
+			padding: 0.4rem 1rem;
+			border-radius: 0.3rem;
+			width: fit-content;
+			color: $black;
+		}
+	}
+
+	.bottom {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.opinion {
+			display: flex;
+			align-items: center;
+			color: $white;
+
+			.votes {
+				color: $gray;
+			}
+		}
+
+		.available {
+			color: $orange;
+		}
+	}
+}
