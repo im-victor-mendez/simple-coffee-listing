@@ -1,0 +1,32 @@
+@media screen and (max-width: 640px) {
+	#home {
+		#background {
+			height: 14rem;
+			width: -webkit-fill-available;
+		}
+
+		main {
+			overflow: hidden;
+			padding: 3rem 2rem;
+			top: -6rem;
+
+			#heading {
+				width: 19rem;
+			}
+		}
+
+		#vector {
+			position: absolute;
+			right: -4rem;
+			top: 2rem;
+			z-index: -1;
+		}
+
+		#list {
+			column-gap: 2.5rem;
+			display: grid;
+			grid-template-columns: auto;
+			row-gap: 4rem;
+		}
+	}
+}

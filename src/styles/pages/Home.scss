@@ -1,33 +1,32 @@
 @import '../scss/colors';
 
+@import 'Home.mobile';
+@import 'Home.tablet';
+@import 'Home.desktop';
+
 #home {
+	align-items: center;
 	background-color: $black;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
 	position: relative;
 
 	#background {
 		width: -webkit-fill-available;
-		height: 20rem;
 	}
 
 	main {
+		align-items: center;
 		background-color: $dark-gray;
-		padding: 4rem 5rem;
-		width: fit-content;
 		border-radius: 1rem;
-		z-index: 1;
-		position: relative;
-		top: -9rem;
 		display: flex;
 		flex-direction: column;
-		align-items: center;
 		gap: 2rem;
+		position: relative;
+		z-index: 1;
 
 		#heading {
-			width: 28rem;
 			text-align: center;
 
 			#title {
@@ -38,13 +37,6 @@
 				color: $gray;
 				margin: 0;
 			}
-
-			#vector {
-				position: absolute;
-				right: 16rem;
-				top: 2rem;
-				z-index: -1;
-			}
 		}
 
 		#filters {
@@ -52,11 +44,11 @@
 			gap: 1rem;
 
 			button {
-				border: 0;
+				background-color: transparent;
 				border-radius: 0.3rem;
+				border: 0;
 				color: $white;
 				padding: 0.5rem 1rem;
-				background-color: transparent;
 			}
 
 			.active {
@@ -66,13 +58,6 @@
 			button:hover {
 				background-color: $gray;
 			}
-		}
-
-		#list {
-			display: grid;
-			grid-template-columns: auto auto auto;
-			row-gap: 4rem;
-			column-gap: 2.5rem;
 		}
 	}
 }
