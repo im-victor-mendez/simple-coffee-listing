@@ -4,6 +4,8 @@ import { getCoffeeList } from '../api/api';
 import { Coffee } from '@interfaces/coffee';
 import { CoffeeComponent } from '@components/Coffee';
 import { Filter } from '@interfaces/filter';
+import Vector from '@assets/svg/vector.svg';
+import '@styles/pages/Home.scss';
 
 /**
  * **Home**
@@ -28,27 +30,35 @@ function Home() {
 	const listMapping = coffeeList.filter(filterCoffee()).map(mapCoffee());
 
 	return (
-		<>
-			<img src={BackgroundCafe} alt='Background Cafe Image' />
-			<div id='background'></div>
+		<section className='page' id='home'>
+			<img id='background' src={BackgroundCafe} alt='Background Cafe Image' />
 			<main>
 				<div id='heading'>
-					<h1>Our Collection</h1>
-					<p>
+					<h1 id='title'>Our Collection</h1>
+					<p id='description'>
 						Introducing our Coffee Collection, a selection of unique coffees
 						from different roast types and origins, expertly roasted in small
 						batches and shipped fresh weekly.
 					</p>
+					<img id='vector' src={Vector} alt='Vector svg' />
 				</div>
 				<div id='filters'>
-					<button onClick={() => setFilter(Filter.All)}>All Products</button>
-					<button onClick={() => setFilter(Filter.AvailableNow)}>
+					<button
+						className={filter == Filter.All ? 'active' : ''}
+						onClick={() => setFilter(Filter.All)}
+					>
+						All Products
+					</button>
+					<button
+						className={filter == Filter.AvailableNow ? 'active' : ''}
+						onClick={() => setFilter(Filter.AvailableNow)}
+					>
 						Available Now
 					</button>
 				</div>
 				<div id='list'>{listMapping}</div>
 			</main>
-		</>
+		</section>
 	);
 
 	/**
