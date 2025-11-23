@@ -131,7 +131,7 @@ function Home() {
 				case Filter.Popular:
 					return coffee.popular;
 				case Filter.HighRating:
-					return parseFloat(coffee.rating) >= 4.5;
+					return parseFloat(String(coffee.rating)) >= 4.5;
 				default:
 					return true;
 			}
