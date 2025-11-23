@@ -17,6 +17,7 @@ import '@styles/pages/Home.scss';
 function Home() {
 	const [coffeeList, setCoffeeList] = useState<Coffee[]>([]);
 	const [filter, setFilter] = useState<Filter>(Filter.All);
+	const [dropdownOpen, setDropdownOpen] = useState(false);
 
 	useEffect(() => {
 		handleCoffeeData();
@@ -42,19 +43,26 @@ function Home() {
 					</p>
 					<img id='vector' src={Vector} alt='Vector svg' />
 				</div>
-				<div id='filters'>
+				<div id='filters-dropdown'>
 					<button
-						className={filter == Filter.All ? 'active' : ''}
-						onClick={() => setFilter(Filter.All)}
+						id='dropdown-button'
+						onClick={() => setDropdownOpen(!dropdownOpen)}
 					>
-						All Products
+						{getFilterLabel(filter)} ▼
 					</button>
-					<button
-						className={filter == Filter.AvailableNow ? 'active' : ''}
-						onClick={() => setFilter(Filter.AvailableNow)}
-					>
-						Available Now
-					</button>
+
+					{dropdownOpen && (
+						<ul id='dropdown-menu'>
+							<li onClick={() => handleFilter(Filter.All)}>All Products</li>
+							<li onClick={() => handleFilter(Filter.AvailableNow)}>
+								Available Now
+							</li>
+							<li onClick={() => handleFilter(Filter.Popular)}>Popular</li>
+							<li onClick={() => handleFilter(Filter.HighRating)}>
+								Rating +4.5
+							</li>
+						</ul>
+					)}
 				</div>
 				<div id='list'>{listMapping}</div>
 			</main>
@@ -72,19 +80,62 @@ function Home() {
 	}
 
 	/**
+	 * **Handle Filter**
+	 *
+	 * Handle filter value to state.
+	 *
+	 * @param value Filter
+	 */
+	function handleFilter(value: Filter) {
+		setFilter(value);
+		setDropdownOpen(false);
+	}
+
+	/**
+	 * **Get Filter Label**
+	 *
+	 * Transforms Filter enum values into readable labels.
+	 *
+	 * @param filter Filter
+	 * @returns string
+	 */
+	function getFilterLabel(filter: Filter): string {
+		switch (filter) {
+			case Filter.AvailableNow:
+				return 'Available Now';
+			case Filter.Popular:
+				return 'Popular';
+			case Filter.HighRating:
+				return 'Rating +4.5';
+			default:
+				return 'All Products';
+		}
+	}
+
+	/**
 	 * **Filter Coffee**
 	 *
 	 * Filter `coffeeList` state by `filter` state value.
 	 *
-	 * @returns unknown
+	 * @returns boolean
 	 */
 	function filterCoffee(): (
 		value: Coffee,
 		index: number,
 		array: Coffee[]
-	) => unknown {
-		return coffee =>
-			filter == Filter.AvailableNow ? coffee.available == true : coffee;
+	) => boolean {
+		return (coffee: Coffee) => {
+			switch (filter) {
+				case Filter.AvailableNow:
+					return coffee.available;
+				case Filter.Popular:
+					return coffee.popular;
+				case Filter.HighRating:
+					return parseFloat(coffee.rating) >= 4.5;
+				default:
+					return true;
+			}
+		};
 	}
 
 	/**

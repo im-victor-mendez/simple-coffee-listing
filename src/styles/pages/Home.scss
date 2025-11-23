@@ -39,24 +39,48 @@
 			}
 		}
 
-		#filters {
+		#filters-dropdown {
+			position: relative;
 			display: flex;
-			gap: 1rem;
+			justify-content: center;
+			margin-top: 1.5rem;
 
-			button {
-				background-color: transparent;
-				border-radius: 0.3rem;
-				border: 0;
+			#dropdown-button {
+				background: $dark-gray;
 				color: $white;
-				padding: 0.5rem 1rem;
+				border: 1px solid $gray;
+				border-radius: 8px;
+				padding: 0.6rem 1.2rem;
+				cursor: pointer;
+				font-size: 0.9rem;
+				transition: 0.2s;
+
+				&:hover {
+					background: lighten($dark-gray, 5%);
+				}
 			}
 
-			.active {
-				background-color: $gray;
-			}
+			#dropdown-menu {
+				position: absolute;
+				top: 110%;
+				background: $black;
+				border: 1px solid $gray;
+				border-radius: 8px;
+				width: 180px;
+				padding: 0.5rem 0;
+				list-style: none;
+				z-index: 50;
 
-			button:hover {
-				background-color: $gray;
+				li {
+					padding: 0.7rem 1rem;
+					color: $white;
+					cursor: pointer;
+					transition: 0.2s;
+
+					&:hover {
+						background: $dark-gray;
+					}
+				}
 			}
 		}
 	}
