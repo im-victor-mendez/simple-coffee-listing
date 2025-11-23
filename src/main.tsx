@@ -6,6 +6,7 @@ import './main.scss';
 import Navbar from './layouts/Navbar';
 import { BrowserRouter, Route, Routes } from 'react-router';
 import { About } from '@pages/About';
+import { Contact } from '@pages/Contact';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
@@ -14,6 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 			<Routes>
 				<Route index element={<Home />} />
 				<Route path='/About' element={<About />} />
+				<Route path='/Contact' element={<Contact />} />
 			</Routes>
 		</BrowserRouter>
 	</React.StrictMode>

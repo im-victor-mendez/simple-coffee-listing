@@ -4,7 +4,6 @@ import { getCoffeeList } from '../api/api';
 import { Coffee } from '@interfaces/coffee';
 import { CoffeeComponent } from '@components/Coffee';
 import { Filter } from '@interfaces/filter';
-import Vector from '@assets/svg/vector.svg';
 import '@styles/pages/Home.scss';
 
 /**
@@ -41,7 +40,6 @@ function Home() {
 						from different roast types and origins, expertly roasted in small
 						batches and shipped fresh weekly.
 					</p>
-					<img id='vector' src={Vector} alt='Vector svg' />
 				</div>
 				<div id='filters-dropdown'>
 					<button
