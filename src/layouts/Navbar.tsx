@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import '@styles/layouts/Navbar.scss';
 import TwentyOnePilotsLogo from '@assets/svg/Twenty One Pilots - Logo.svg';
+import { Link } from 'react-router';
 
 export default function Navbar() {
 	const [open, setOpen] = useState(false);
@@ -20,16 +21,16 @@ export default function Navbar() {
 
 			<ul className={`nav-links ${open ? 'open' : ''}`}>
 				<li>
-					<a href='#'>Inicio</a>
+					<Link to={'/'}> Home</Link>
 				</li>
 				<li>
-					<a href='#'>Nosotros</a>
+					<Link to={'/About'}> About Us</Link>
 				</li>
 				<li>
-					<a href='#'>Menú</a>
+					<Link to={'/'}> Menu</Link>
 				</li>
 				<li>
-					<a href='#'>Contacto</a>
+					<Link to={'/Contact'}>Contact</Link>
 				</li>
 			</ul>
 		</nav>
